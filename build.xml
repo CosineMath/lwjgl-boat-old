@@ -268,9 +268,9 @@
 		</copy>
 		
 		<!-- boat -->
-		<copy todir="${lwjgl.temp}/native/potato">
-			<fileset dir="${lwjgl.lib}/potato">
-				<patternset refid="lwjgl-potato.fileset" />
+		<copy todir="${lwjgl.temp}/native/boat">
+			<fileset dir="${lwjgl.lib}/boat">
+				<patternset refid="lwjgl-boat.fileset" />
 			</fileset>
 		</copy>
 		<!-- boat -->

@@ -38,7 +38,7 @@
  * @version $Revision$
  */
 
-#ifndef PLATFORM_POTATO
+
 
 #include <jni.h>
 #ifdef __MACH__
@@ -115,4 +115,3 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AWTSurfaceLock_nUnlock
 	awt_lock->awt.FreeDrawingSurface(awt_lock->ds);
 }
 
-#endif

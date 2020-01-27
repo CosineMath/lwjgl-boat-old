@@ -62,6 +62,7 @@ class BaseReferences {
 		glVertexAttribPointer_buffer = new Buffer[max_vertex_attribs];
 
 		int max_texture_units;
+		
 		if ( caps.OpenGL20 )
 			max_texture_units = glGetInteger(GL_MAX_TEXTURE_IMAGE_UNITS);
 		else if ( caps.OpenGL13 || caps.GL_ARB_multitexture )

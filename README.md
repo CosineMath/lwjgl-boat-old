@@ -1,3 +1,8 @@
+LWJGL for Boat
+======
+
+This is a merge of https://github.com/LWJGL/lwjgl and https://github.com/BoardwalkApp/boardwalk2-lwjgl
+
 LWJGL - Lightweight Java Game Library
 ======
 
