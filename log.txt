@@ -1,0 +1,417 @@
+Buildfile: /home/cosine/projects/lwjgl-lwjgl2.9.3/build.xml
+
+-initialize:
+
+generators:
+
+generate-openal:
+[processor] Compiling 3 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+
+generate-opengl:
+[processorGL] Compiling 381 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+
+generate-opengl-capabilities:
+[processor] Compiling 381 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+
+generate-opengl-references:
+[processor] Compiling 381 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+
+generate-opengles:
+[processor] Compiling 117 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+
+generate-opengles-capabilities:
+[processor] Compiling 117 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+
+generate-opencl:
+[processor] Compiling 53 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+
+generate-opencl-capabilities:
+[processor] Compiling 53 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+
+generate-all:
+
+compile:
+     [core] Compiling 6 source files to /home/cosine/projects/lwjgl-lwjgl2.9.3/bin
+     [core] 警告: [options] 源值1.5已过时, 将在未来所有发行版中删除
+     [core] 警告: [options] 目标值1.5已过时, 将在未来所有发行版中删除
+     [core] 警告: [options] 要隐藏有关已过时选项的警告, 请使用 -Xlint:-options。
+     [core] 3 个警告
+
+-createjars:
+[lwjgl.jar] Building jar: /home/cosine/projects/lwjgl-lwjgl2.9.3/temp/jar/lwjgl.jar
+[lwjgl_util_applet.jar] Building jar: /home/cosine/projects/lwjgl-lwjgl2.9.3/temp/jar/lwjgl_util_applet.jar
+[lwjgl_test.jar] Building jar: /home/cosine/projects/lwjgl-lwjgl2.9.3/temp/jar/lwjgl_test.jar
+[lwjgl_util.jar] Building jar: /home/cosine/projects/lwjgl-lwjgl2.9.3/temp/jar/lwjgl_util.jar
+
+jars:
+
+-jars_NoDEP:
+     [move] Moving 4 files to /home/cosine/projects/lwjgl-lwjgl2.9.3/libs
+
+headers:
+
+touch-version:
+
+version-mismatch:
+     [echo] 
+     [echo] 			lwjgl.java.windows.version = 	private static final int JNI_VERSION = 24;
+     [echo] 
+     [echo] 			lwjgl.native.windows.version = #define org_lwjgl_WindowsSysImplementation_JNI_VERSION 24L
+     [echo] 
+     [echo] 			lwjgl.java.linux.version = 	private static final int JNI_VERSION = 19;
+     [echo] 
+     [echo] 			lwjgl.native.linux.version = #define org_lwjgl_LinuxSysImplementation_JNI_VERSION 19L
+     [echo] 
+     [echo] 			lwjgl.java.boat.version = 	private static final int JNI_VERSION = 19;
+     [echo] 
+     [echo] 			lwjgl.native.boat.version = #define org_lwjgl_BoatSysImplementation_JNI_VERSION 19L
+     [echo] 
+     [echo] 			lwjgl.java.freebsd.version = 	private static final int JNI_VERSION = 19;
+     [echo] 
+     [echo] 			lwjgl.native.freebsd.version = #define org_lwjgl_LinuxSysImplementation_JNI_VERSION 19L
+     [echo] 
+     [echo] 			lwjgl.java.openbsd.version = 	private static final int JNI_VERSION = 19;
+     [echo] 
+     [echo] 			lwjgl.native.openbsd.version = #define org_lwjgl_LinuxSysImplementation_JNI_VERSION 19L
+     [echo] 
+     [echo] 			lwjgl.java.macosx.version = 	private static final int JNI_VERSION = 25;
+     [echo] 
+     [echo] 			lwjgl.native.macosx.version = #define org_lwjgl_MacOSXSysImplementation_JNI_VERSION 25L
+     [echo] 
+     [echo] 		
+
+compile_native:
+
+-compile_native_boat:
+
+compile:
+
+compile32:
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/org_lwjgl_opengl_BoatPeerInfo.c: In function 'Java_org_lwjgl_opengl_BoatPeerInfo_nGetDrawable':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/org_lwjgl_opengl_BoatPeerInfo.c:57:2: warning: return makes integer from pointer without a cast
+    [apply]   return peer_info->drawable;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:236:54: error: unknown type name 'Display'
+    [apply]  static EGLConfig chooseVisualEGLFromBPP(JNIEnv *env, Display *disp, int screen, jobject pixel_format, int bpp, bool double_buffer) {
+    [apply]                                                       ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c: In function 'chooseVisualEGL':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:320:2: warning: implicit declaration of function 'chooseVisualEGLFromBPP' [-Wimplicit-function-declaration]
+    [apply]   return chooseVisualEGLFromBPP(env, disp, screen, pixel_format, bpp, drawable_type, double_buffer);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:320:2: warning: return makes pointer from integer without a cast
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c: In function 'initPeerInfo':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:392:3: error: unknown type name 'GLXFBConfig'
+    [apply]    GLXFBConfig *configs = chooseVisualGLX13(env, display, screen, pixel_format, use_display_bpp, drawable_type, double_buffered);
+    [apply]    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:392:3: warning: implicit declaration of function 'chooseVisualGLX13' [-Wimplicit-function-declaration]
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:392:26: warning: initialization makes pointer from integer without a cast
+    [apply]    GLXFBConfig *configs = chooseVisualGLX13(env, display, screen, pixel_format, use_display_bpp, drawable_type, double_buffered);
+    [apply]                           ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:398:4: error: unknown type name 'XVisualInfo'
+    [apply]     XVisualInfo *vis_info = lwjgl_glXGetVisualFromFBConfig(display, configs[0]);
+    [apply]     ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:398:4: warning: implicit declaration of function 'lwjgl_glXGetVisualFromFBConfig' [-Wimplicit-function-declaration]
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:398:28: warning: initialization makes pointer from integer without a cast
+    [apply]     XVisualInfo *vis_info = lwjgl_glXGetVisualFromFBConfig(display, configs[0]);
+    [apply]                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:401:5: warning: implicit declaration of function 'XFree' [-Wimplicit-function-declaration]
+    [apply]      XFree(vis_info);
+    [apply]      ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:405:62: error: 'GLX_FBCONFIG_ID' undeclared (first use in this function)
+    [apply]    int result = lwjgl_eglGetConfigAttrib(display, configs[0], GLX_FBCONFIG_ID, &config_id);
+    [apply]                                                               ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:405:62: note: each undeclared identifier is reported only once for each function it appears in
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:405:16: warning: passing argument 2 of 'lwjgl_eglGetConfigAttrib' makes pointer from integer without a cast
+    [apply]    int result = lwjgl_eglGetConfigAttrib(display, configs[0], GLX_FBCONFIG_ID, &config_id);
+    [apply]                 ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:405:16: note: expected 'EGLConfig' but argument is of type 'int'
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:407:17: error: 'Success' undeclared (first use in this function)
+    [apply]    if (result != Success) {
+    [apply]                  ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:411:20: error: 'union <anonymous>' has no member named 'glx13_config'
+    [apply]    peer_info->config.glx13_config.config_id = config_id;
+    [apply]                     ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c: At top level:
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/context.c:215:12: warning: 'convertToBPE' defined but not used [-Wunused-function]
+    [apply]  static int convertToBPE(int bpp) {
+    [apply]             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:69:48: error: unknown type name 'Display'
+    [apply]  static bool getXF86VidModeVersion(JNIEnv *env, Display *disp, int *major, int *minor) {
+    [apply]                                                 ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:84:43: error: unknown type name 'Display'
+    [apply]  static bool getXrandrVersion(JNIEnv *env, Display *disp, int *major, int *minor) {
+    [apply]                                            ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:99:44: error: unknown type name 'Display'
+    [apply]  static bool isXrandrSupported(JNIEnv *env, Display *disp) {
+    [apply]                                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:106:49: error: unknown type name 'Display'
+    [apply]  static bool isXF86VidModeSupported(JNIEnv *env, Display *disp) {
+    [apply]                                                  ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:125:41: error: unknown type name 'Display'
+    [apply]  static mode_info *getXrandrDisplayModes(Display *disp, int screen, int *num_modes) {
+    [apply]                                          ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:155:46: error: unknown type name 'Display'
+    [apply]  static mode_info *getXF86VidModeDisplayModes(Display *disp, int screen, int *num_modes) {
+    [apply]                                               ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:176:35: error: unknown type name 'Display'
+    [apply]  static mode_info *getDisplayModes(Display *disp, int screen, jint extension, int *num_modes) {
+    [apply]                                    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:189:32: error: unknown type name 'Display'
+    [apply]  static bool setXF86VidModeMode(Display *disp, int screen, mode_info *mode) {
+    [apply]                                 ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:197:8: error: unknown type name 'Status'
+    [apply]  static Status trySetXrandrMode(Display *disp, int screen, mode_info *mode, Time *timestamp) {
+    [apply]         ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:197:32: error: unknown type name 'Display'
+    [apply]  static Status trySetXrandrMode(Display *disp, int screen, mode_info *mode, Time *timestamp) {
+    [apply]                                 ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:197:76: error: unknown type name 'Time'
+    [apply]  static Status trySetXrandrMode(Display *disp, int screen, mode_info *mode, Time *timestamp) {
+    [apply]                                                                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:210:27: error: unknown type name 'Display'
+    [apply]  static bool setXrandrMode(Display *disp, int screen, mode_info *mode) {
+    [apply]                            ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:229:34: error: unknown type name 'Display'
+    [apply]  static bool setMode(JNIEnv *env, Display *disp, int screen, jint extension, int width, int height, int freq) {
+    [apply]                                   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:266:53: error: unknown type name 'Display'
+    [apply]  static int getGammaRampLengthOfDisplay(JNIEnv *env, Display *disp, int screen) {
+    [apply]                                                      ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c: In function 'Java_org_lwjgl_opengl_LinuxDisplay_nGetCurrentGammaRamp':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:297:2: error: unknown type name 'Display'
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:297:19: error: 'Display' undeclared (first use in this function)
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:297:19: note: each undeclared identifier is reported only once for each function it appears in
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:297:28: error: expected expression before ')' token
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:297:39: error: expected ',' or ';' before 'display'
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                                        ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:298:2: warning: implicit declaration of function 'getGammaRampLengthOfDisplay' [-Wimplicit-function-declaration]
+    [apply]   int ramp_size = getGammaRampLengthOfDisplay(env, disp, screen);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:305:2: warning: implicit declaration of function 'XF86VidModeGetGammaRamp' [-Wimplicit-function-declaration]
+    [apply]   if (!XF86VidModeGetGammaRamp(disp, screen, ramp_size, ramp,
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c: At top level:
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:313:35: error: unknown type name 'Display'
+    [apply]  static void setGamma(JNIEnv *env, Display *disp, int screen, jobject ramp_buffer) {
+    [apply]                                    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:326:45: error: unknown type name 'Display'
+    [apply]  static bool switchDisplayMode(JNIEnv * env, Display *disp, int screen, jint extension, jobject mode) {
+    [apply]                                              ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:345:60: error: unknown type name 'Display'
+    [apply]  static jobjectArray getAvailableDisplayModes(JNIEnv * env, Display *disp, int screen, jint extension) {
+    [apply]                                                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:367:51: error: unknown type name 'Display'
+    [apply]  static jobject getCurrentXRandrMode(JNIEnv * env, Display *disp, int screen) {
+    [apply]                                                    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c: In function 'Java_org_lwjgl_opengl_LinuxDisplay_nGetCurrentXRandrMode':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:394:2: error: unknown type name 'Display'
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:394:19: error: 'Display' undeclared (first use in this function)
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:394:28: error: expected expression before ')' token
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:394:39: error: expected ',' or ';' before 'display'
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                                        ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:395:2: warning: implicit declaration of function 'getCurrentXRandrMode' [-Wimplicit-function-declaration]
+    [apply]   return getCurrentXRandrMode(env, disp, screen);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:395:2: warning: return makes pointer from integer without a cast
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c: In function 'Java_org_lwjgl_opengl_LinuxDisplay_nGetAvailableDisplayModes':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:399:2: error: unknown type name 'Display'
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:399:19: error: 'Display' undeclared (first use in this function)
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:399:28: error: expected expression before ')' token
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:399:39: error: expected ',' or ';' before 'display'
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                                        ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:400:2: warning: implicit declaration of function 'getAvailableDisplayModes' [-Wimplicit-function-declaration]
+    [apply]   return getAvailableDisplayModes(env, disp, screen, extension);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:400:2: warning: return makes pointer from integer without a cast
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c: In function 'Java_org_lwjgl_opengl_LinuxDisplay_nSwitchDisplayMode':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:404:2: error: unknown type name 'Display'
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:404:19: error: 'Display' undeclared (first use in this function)
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:404:28: error: expected expression before ')' token
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:404:39: error: expected ',' or ';' before 'display'
+    [apply]   Display *disp = (Display *)(intptr_t)display;
+    [apply]                                        ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/display.c:405:2: warning: implicit declaration of function 'switchDisplayMode' [-Wimplicit-function-declaration]
+    [apply]   switchDisplayMode(env, disp, screen, extension, mode);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c:56:39: error: unknown type name 'EGLDispaly'
+    [apply]  static bool checkContext(JNIEnv *env, EGLDispaly display, EGLContext context) {
+    [apply]                                        ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c: In function 'createContextEGL':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c:117:2: warning: implicit declaration of function 'getEGLConfigFromPeerInfo' [-Wimplicit-function-declaration]
+    [apply]   EGLConfig config = getEGLConfigFromPeerInfo(env, peer_info);    //getFBConfigFromPeerInfo
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c:117:21: warning: initialization makes pointer from integer without a cast
+    [apply]   EGLConfig config = getEGLConfigFromPeerInfo(env, peer_info);    //getFBConfigFromPeerInfo
+    [apply]                      ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c:126:2: warning: implicit declaration of function 'checkContext' [-Wimplicit-function-declaration]
+    [apply]   if (!checkContext(env, peer_info->display, context))
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c: In function 'Java_org_lwjgl_opengl_BoatContextImplementation_nSetSwapInterval':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c:168:15: warning: unused variable 'context_info' [-Wunused-variable]
+    [apply]   BoatContext *context_info = (*env)->GetDirectBufferAddress(env, context_handle);
+    [apply]                ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c: In function 'Java_org_lwjgl_opengl_BoatContextImplementation_nReleaseCurrentContext':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c:221:2: error: unknown type name 'Bool'
+    [apply]   Bool result;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c: In function 'Java_org_lwjgl_opengl_BoatContextImplementation_nMakeCurrent':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_BoatContextImplementation.c:241:2: error: unknown type name 'Bool'
+    [apply]   Bool result;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'processEvent':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:120:3: error: void value not ignored as it ought to be
+    [apply]    return (*env)->CallStaticVoidMethod(env, org_lwjgl_BoatDisplay_class, handler_method);
+    [apply]    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'openDisplay':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:133:2: warning: implicit declaration of function 'boat_server_GetNativeDisplay' [-Wimplicit-function-declaration]
+    [apply]   EGLDisplay display_connection = lwjgl_eglGetDisplay(boat_server_GetNativeDisplay());
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:133:34: warning: passing argument 1 of 'lwjgl_eglGetDisplay' makes pointer from integer without a cast
+    [apply]   EGLDisplay display_connection = lwjgl_eglGetDisplay(boat_server_GetNativeDisplay());
+    [apply]                                   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:133:34: note: expected 'EGLNativeDisplayType' but argument is of type 'int'
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'Java_org_lwjgl_opengl_LinuxDisplay_closeDisplay':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:247:2: warning: implicit declaration of function 'eglTerminate' [-Wimplicit-function-declaration]
+    [apply]   eglTerminate( (EGLDisplay)(void*)display );
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:247:28: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    [apply]   eglTerminate( (EGLDisplay)(void*)display );
+    [apply]                             ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: At top level:
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:280:57: error: unknown type name 'ANativeWindow'
+    [apply]  static void destroyWindow(JNIEnv *env, EGLSurface disp, ANativeWindow* window) {
+    [apply]                                                          ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'Java_org_lwjgl_opengl_BoatDisplay_nGetWidth':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:404:2: error: unknown type name 'ANativeWindow'
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:404:24: error: 'ANativeWindow' undeclared (first use in this function)
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]                         ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:404:24: note: each undeclared identifier is reported only once for each function it appears in
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:404:38: error: expected expression before ')' token
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]                                       ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:405:2: warning: implicit declaration of function 'ANativeWindow_getWidth' [-Wimplicit-function-declaration]
+    [apply]   return ANativeWindow_getWidth(win);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'Java_org_lwjgl_opengl_BoatDisplay_nGetHeight':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:418:2: error: unknown type name 'ANativeWindow'
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:418:24: error: 'ANativeWindow' undeclared (first use in this function)
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]                         ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:418:38: error: expected expression before ')' token
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]                                       ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:419:2: warning: implicit declaration of function 'ANativeWindow_getHeight' [-Wimplicit-function-declaration]
+    [apply]   return ANativeWindow_getHeight(win);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: At top level:
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:459:8: error: unknown type name 'ANativeWindow'
+    [apply]  static ANativeWindow* createWindow(JNIEnv* env, EGLDisplay disp, int screen, jint window_mode, BoatPeerInfo *peer_info, int x, int y, int width, int height, jboolean undecorated, long parent_handle, jboolean resizable) {
+    [apply]         ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'createWindow':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:461:2: error: unknown type name 'ANativeWindow'
+    [apply]   ANativeWindow* win = boat_server_GetNativeWindow();
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:461:2: warning: implicit declaration of function 'boat_server_GetNativeWindow' [-Wimplicit-function-declaration]
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:461:23: warning: initialization makes pointer from integer without a cast
+    [apply]   ANativeWindow* win = boat_server_GetNativeWindow();
+    [apply]                        ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:510:7: error: too many arguments to function 'checkXError'
+    [apply]   if (!checkXError(env, disp)) {
+    [apply]        ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:84:13: note: declared here
+    [apply]  static bool checkXError(JNIEnv *env) {
+    [apply]              ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:511:3: warning: implicit declaration of function 'destroyWindow' [-Wimplicit-function-declaration]
+    [apply]    destroyWindow(env, disp, win);
+    [apply]    ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'Java_org_lwjgl_opengl_BoatDisplay_nCreateWindow':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:612:2: warning: implicit declaration of function 'getEGLConfigFromPeerInfo' [-Wimplicit-function-declaration]
+    [apply]   EGLConfig config = getEGLConfigFromPeerInfo(env, peer_info);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:612:21: warning: initialization makes pointer from integer without a cast
+    [apply]   EGLConfig config = getEGLConfigFromPeerInfo(env, peer_info);
+    [apply]                      ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:618:2: error: unknown type name 'ANativeWindow'
+    [apply]   ANativeWindow* win = createWindow(env, disp, screen, window_mode, peer_info, x, y, width, height, undecorated, parent_handle, resizable);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:628:16: warning: passing argument 3 of 'lwjgl_eglCreateWindowSurface' from incompatible pointer type
+    [apply]   egl_surface = lwjgl_eglCreateWindowSurface(disp, config, win, NULL);
+    [apply]                 ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:628:16: note: expected 'EGLNativeWindowType' but argument is of type 'int *'
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:630:2: warning: implicit declaration of function 'boatSetCurrentEventProcessor' [-Wimplicit-function-declaration]
+    [apply]   boatSetCurrentEventProcessor(processEvent);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:632:7: error: too many arguments to function 'checkXError'
+    [apply]   if (!checkXError(env, disp)) {
+    [apply]        ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:84:13: note: declared here
+    [apply]  static bool checkXError(JNIEnv *env) {
+    [apply]              ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:636:2: warning: return makes integer from pointer without a cast
+    [apply]   return win;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'Java_org_lwjgl_opengl_BoatDisplay_nDestroyWindow':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:647:2: error: unknown type name 'ANativeWindow'
+    [apply]   ANativeWindow* window = (ANativeWindow*)window_ptr;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:647:27: error: 'ANativeWindow' undeclared (first use in this function)
+    [apply]   ANativeWindow* window = (ANativeWindow*)window_ptr;
+    [apply]                            ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:647:41: error: expected expression before ')' token
+    [apply]   ANativeWindow* window = (ANativeWindow*)window_ptr;
+    [apply]                                          ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'Java_org_lwjgl_opengl_BoatDisplay_nGrabPointer':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:711:2: error: unknown type name 'ANativeWindow'
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:711:24: error: 'ANativeWindow' undeclared (first use in this function)
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]                         ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:711:38: error: expected expression before ')' token
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]                                       ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:718:2: warning: implicit declaration of function 'boat_server_SetCursorMode' [-Wimplicit-function-declaration]
+    [apply]   boat_server_SetCursorMode(0);
+    [apply]   ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:711:17: warning: unused variable 'win' [-Wunused-variable]
+    [apply]   ANativeWindow* win = (ANativeWindow*)window_ptr;
+    [apply]                  ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:710:13: warning: unused variable 'disp' [-Wunused-variable]
+    [apply]   EGLDisplay disp = (EGLDisplay)(intptr_t)display_ptr;
+    [apply]              ^
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c: In function 'processEvent':
+    [apply] /home/cosine/projects/lwjgl-lwjgl2.9.3/src/native/boat/opengl/org_lwjgl_opengl_Display.c:123:1: warning: control reaches end of non-void function [-Wreturn-type]
+    [apply]  }
+    [apply]  ^
