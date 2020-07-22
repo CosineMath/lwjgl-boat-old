@@ -89,7 +89,8 @@ final class BoatDisplayPeerInfo extends BoatPeerInfo {
 
 	public void destroy() {
 		super.destroy();
-
+                
+                /*
 		if ( egl )
 			org.lwjgl.opengles.GLContext.unloadOpenGLLibrary();
 		else {
@@ -98,5 +99,8 @@ final class BoatDisplayPeerInfo extends BoatPeerInfo {
 			GLContext.unloadOpenGLLibrary();
 			//LinuxDisplay.unlockAWT();
 		}
+		*/
+		BoatDisplay.decDisplay();
+		GLContext.unloadOpenGLLibrary();
 	}
 }

@@ -84,7 +84,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_BoatMouse_nWarpCursor(JNIEnv *env, 
 }
 /*
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_BoatMouse_nQueryPointer(JNIEnv *env, jclass unused, jlong display_ptr, jlong window_ptr, jobject result_buffer) {
-	/
+	
 	Display *disp = (Display *)(intptr_t)display_ptr;
 	Window win = (Window)window_ptr;
 	Window root_return, child_return;

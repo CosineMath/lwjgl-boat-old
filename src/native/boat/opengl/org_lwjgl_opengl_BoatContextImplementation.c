@@ -131,7 +131,6 @@ static void createContextEGL(JNIEnv *env, BoatPeerInfo *peer_info, BoatContext *
 	        EGL_NONE
 	};
 	
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglCreateContext.");
 	context = lwjgl_eglCreateContext(peer_info->display, config, shared_context, attrib_list);
 	if (!checkContext(env, peer_info->display, context))
 		return;
@@ -176,7 +175,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_BoatContextImplementation_nSetSwapI
 {
 	BoatPeerInfo *peer_info = (*env)->GetDirectBufferAddress(env, peer_info_handle);
 	BoatContext *context_info = (*env)->GetDirectBufferAddress(env, context_handle);
-	//__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglSwapInterval.");
         lwjgl_eglSwapInterval(peer_info->display, value);
         /*
 	if (context_info->extension_flags.GLX_EXT_swap_control) {
@@ -223,7 +221,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_BoatContextImplementation_nDestroy
   (JNIEnv *env, jclass clazz, jobject peer_handle, jobject context_handle) {
 	BoatPeerInfo *peer_info = (*env)->GetDirectBufferAddress(env, peer_handle);
 	BoatContext *context_info = (*env)->GetDirectBufferAddress(env, context_handle);
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglDestroyContext.");
 	lwjgl_eglDestroyContext(peer_info->display, context_info->context);
 }
 
@@ -231,7 +228,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_BoatContextImplementation_nReleaseC
   (JNIEnv *env , jclass clazz, jobject peer_info_handle) {
 	BoatPeerInfo *peer_info = (*env)->GetDirectBufferAddress(env, peer_info_handle);
 	bool result;
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglMakeCurrent.");
 	result = lwjgl_eglMakeCurrent(peer_info->display, EGL_NO_SURFACE, EGL_NO_SURFACE, NULL);
 
 	if (!result)
@@ -252,7 +248,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_BoatContextImplementation_nMakeCurr
 	BoatPeerInfo *peer_info = (*env)->GetDirectBufferAddress(env, peer_info_handle);
 	BoatContext *context_info = (*env)->GetDirectBufferAddress(env, context_handle);
 	bool result;
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglMakeCurrent.");
 	result = lwjgl_eglMakeCurrent(peer_info->display, peer_info->drawable, peer_info->drawable, context_info->context);
 
 	if (!result)
@@ -271,13 +266,11 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_BoatContextImplementation_nMakeCurr
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_BoatContextImplementation_nIsCurrent
   (JNIEnv *env, jclass clazz, jobject context_handle) {
 	BoatContext *context_info = (*env)->GetDirectBufferAddress(env, context_handle);
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglGetCurrentContext.");
 	return context_info->context == lwjgl_eglGetCurrentContext();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_BoatContextImplementation_nSwapBuffers
   (JNIEnv *env, jclass clazz, jobject peer_info_handle) {
 	BoatPeerInfo *peer_info = (*env)->GetDirectBufferAddress(env, peer_info_handle);
-	//__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglSwapBuffers.");
 	lwjgl_eglSwapBuffers(peer_info->display, peer_info->drawable);
 }

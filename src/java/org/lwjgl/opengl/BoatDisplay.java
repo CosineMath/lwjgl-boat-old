@@ -133,8 +133,6 @@ final class BoatDisplay implements DisplayImplementation {
 	/** Saved mode to restore with */
 	private DisplayMode saved_mode;
 	private DisplayMode current_mode;
-	
-	//private DisplayMode fake_mode;
 
 
 	private boolean keyboard_grabbed;
@@ -221,7 +219,7 @@ final class BoatDisplay implements DisplayImplementation {
 		}
 		*/
 		
-		LWJGLUtil.log("Using XF86VidMode for display mode switching");
+		LWJGLUtil.log("Using Boat for display mode switching");
 		result = BOAT;
 		return result;
 	}
@@ -432,10 +430,10 @@ final class BoatDisplay implements DisplayImplementation {
 	private void ungrabPointer() {
 		if (pointer_grabbed) {
 			pointer_grabbed = false;
-			//nUngrabPointer(getDisplay());
+			nUngrabPointer(getDisplay());
 		}
 	}
-	//static native int nUngrabPointer(long display);
+	static native int nUngrabPointer(long display);
 
 	private static boolean isFullscreen() {
 		return true;//current_window_mode == FULLSCREEN_LEGACY || current_window_mode == FULLSCREEN_NETWM;
@@ -446,7 +444,7 @@ final class BoatDisplay implements DisplayImplementation {
 	}
 
 	private void updatePointerGrab() {
-		if (isFullscreen() || shouldGrab()) {
+		if (/*isFullscreen() || */shouldGrab()) {
 			grabPointer();
 		} else {
 			ungrabPointer();
@@ -657,20 +655,20 @@ final class BoatDisplay implements DisplayImplementation {
 	static native void nDestroyWindow(long display, long window);
 
 	public void switchDisplayMode(DisplayMode mode) throws LWJGLException {
-	        /*
-		lockAWT();
+	        
+		//lockAWT();
 		try {
 			switchDisplayModeOnTmpDisplay(mode);
 			current_mode = mode;
 		} finally {
-			unlockAWT();
+			//unlockAWT();
 		}
-		*/
+		
 	}
         
-        /*
+        
 	private void switchDisplayModeOnTmpDisplay(DisplayMode mode) throws LWJGLException {
-	        
+	        /*
                 if (current_displaymode_extension == XRANDR) {
                         // let Xrandr set the display mode
                         XRandR.setConfiguration(false, XRandR.DisplayModetoScreen(mode));
@@ -682,10 +680,19 @@ final class BoatDisplay implements DisplayImplementation {
                                 decDisplay();
                         }
                 }
+                */
+                
+                incDisplay();
+                try {
+                                
+                        nSwitchDisplayMode(getDisplay(), getDefaultScreen(), current_displaymode_extension, mode);
+                } finally {
+                        decDisplay();
+                }
                 
 	}
-	*/
-	//private static native void nSwitchDisplayMode(long display, int screen, int extension, DisplayMode mode) throws LWJGLException;
+	
+	private static native void nSwitchDisplayMode(long display, int screen, int extension, DisplayMode mode) throws LWJGLException;
         
         /*
 	private static long internAtom(String atom_name, boolean only_if_exists) throws LWJGLException {
@@ -700,9 +707,10 @@ final class BoatDisplay implements DisplayImplementation {
 	//static native long nInternAtom(long display, String atom_name, boolean only_if_exists);
 
 	public void resetDisplayMode() {
-	        /*
-		lockAWT();
+	        
+		//lockAWT();
 		try {
+		        /*
 			if( current_displaymode_extension == XRANDR )
 			{
 				AccessController.doPrivileged(new PrivilegedAction<Object>() {
@@ -718,14 +726,17 @@ final class BoatDisplay implements DisplayImplementation {
 			}
 			if (isXF86VidModeSupported())
 				doSetGamma(saved_gamma);
+			*/
+				
+			switchDisplayMode(saved_mode);
 
 			//Compiz.setLegacyFullscreenSupport(false);
 		} catch (LWJGLException e) {
 			LWJGLUtil.log("Caught exception while resetting mode: " + e);
 		} finally {
-			unlockAWT();
+			//unlockAWT();
 		}
-		*/
+		
 	}
         
         
@@ -804,7 +815,7 @@ final class BoatDisplay implements DisplayImplementation {
 	}
 
 	public DisplayMode init() throws LWJGLException {
-	        /*
+	        
 		//lockAWT();
 		try {
 			//Compiz.init();
@@ -817,6 +828,7 @@ final class BoatDisplay implements DisplayImplementation {
 			if (modes == null || modes.length == 0)
 				throw new LWJGLException("No modes available");
 			switch (current_displaymode_extension) {
+			        /*
 				case XRANDR:
 					saved_mode = AccessController.doPrivileged(new PrivilegedAction<DisplayMode>() {
 						public DisplayMode run() {
@@ -828,24 +840,21 @@ final class BoatDisplay implements DisplayImplementation {
 				case XF86VIDMODE:
 					saved_mode = modes[0];
 					break;
+				*/
+				case BOAT:
+					saved_mode = modes[0];
+					break;
 				default:
 					throw new LWJGLException("Unknown display mode extension: " + current_displaymode_extension);
 			}
 			current_mode = saved_mode;
-			saved_gamma = getCurrentGammaRamp();
+			saved_gamma = null;//getCurrentGammaRamp();
 			current_gamma = saved_gamma;
 			return saved_mode;
 		} finally {
 			//unlockAWT();
 		}
-		*/
-		//throw new LWJGLException("No modes available");
-		 
-		if (fake_mode == null) {
-		        fake_mode = new DisplayMode(1280, 720, 24, 60);
-		}
 		
-		return fake_mode;
 	}
 
         /*
@@ -960,23 +969,15 @@ final class BoatDisplay implements DisplayImplementation {
 	public static int processEvent() {
 	        if (current_boat_display != null) {
 	                current_boat_display.processEvents();
-	                return 1;
-	        } 
-	        else {
-	                System.out.println("Fuck! No display available.");
-	                return 2;
 	        }
-	        
-	        
+	        return 0;
 	}
 	
 	/////
 	
 	public void processEvents() {
 	        
-	        System.out.println("Processing current event...");
 		event_buffer.nextEvent();
-		System.out.println("Event type : " + event_buffer.getType());
 		if (mouse != null && mouse.filterEvent(grab, shouldWarpPointer(), event_buffer)) {
 		        return;
 		}
@@ -1073,10 +1074,11 @@ final class BoatDisplay implements DisplayImplementation {
 	//private static native void nReshape(long display, long window, int x, int y, int width, int height);
 
 	public DisplayMode[] getAvailableDisplayModes() throws LWJGLException {
-	        /*
-		lockAWT();
+	        
+		//lockAWT();
 		try {
                         incDisplay();
+                        /*
                         if (current_displaymode_extension == XRANDR) {
                                 // nGetAvailableDisplayModes cannot be trusted. Use it only for bitsPerPixel
                                 DisplayMode[] nDisplayModes = nGetAvailableDisplayModes(getDisplay(), getDefaultScreen(), current_displaymode_extension);
@@ -1099,21 +1101,21 @@ final class BoatDisplay implements DisplayImplementation {
                                         decDisplay();
                                 }
                         }
+                        */
+                        
+                        try {
+                                DisplayMode[] modes = nGetAvailableDisplayModes(getDisplay(), getDefaultScreen(), current_displaymode_extension);
+                                return modes;
+                        } finally {
+                                decDisplay();
+                        }
+                        
 		} finally {
-			unlockAWT();
-		}
-		*/
-		//Fake mode
-		
-		//throw new LWJGLException("No modes available");
-		
-		if (fake_mode == null) {
-		        fake_mode = new DisplayMode(1280, 720, 24, 60);
+			//unlockAWT();
 		}
 		
-		return new DisplayMode[]{ fake_mode };
 	}
-	//private static native DisplayMode[] nGetAvailableDisplayModes(long display, int screen, int extension) throws LWJGLException;
+	private static native DisplayMode[] nGetAvailableDisplayModes(long display, int screen, int extension) throws LWJGLException;
 
 	/* Mouse */
 	public boolean hasWheel() {

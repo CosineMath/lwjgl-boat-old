@@ -348,7 +348,7 @@ final class BoatKeyboard {
 	}
 
 	private void handleKeyEvent(long event_ptr, long millis, int event_type, int event_keycode, int event_keychar/* int event_state*/) {
-		int keycode = event_keycode; //getKeycode(event_ptr, event_state);
+		int keycode = BoatKeycodes.mapKeySymToLWJGLKeyCode(event_keycode);//event_keycode; //getKeycode(event_ptr, event_state);
 		int keychar = event_keychar;
 		
 		byte key_state = getKeyState(event_type);

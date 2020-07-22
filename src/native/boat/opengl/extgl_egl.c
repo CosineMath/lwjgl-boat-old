@@ -80,7 +80,7 @@ static glXGetProcAddressARBPROC lwjgl_glXGetProcAddressARB;
 void *extgl_eglSym(const char *name) {
 	void *t = dlsym(lib_egl_handle, name);
 	if (t == NULL) {
-	        __android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Could not locate symbol %s\n", name);
+	        printfDebug("Could not locate symbol %s\n", name);
 	}
 	return t;
 }
@@ -162,8 +162,7 @@ void *extgl_GetProcAddress(const char *name) {
 	        
 		t = dlsym(lib_gl_handle, name);
 		if (t == NULL) {
-		        //printfDebug("Could not locate symbol %s\n", name);
-		        //__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Could not locate symbol %s\n", name);
+		        printfDebug("Could not locate symbol %s\n", name);
 		}
 		
 	}
@@ -181,7 +180,6 @@ void extgl_Close(void) {
 
 bool extgl_InitEGL(EGLDisplay disp) {
 
-        __android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglInitialize.");
 	lwjgl_eglInitialize(disp, 0, 0);
 
 	return true;

@@ -321,10 +321,8 @@ static EGLConfig chooseVisualEGLFromBPP(JNIEnv *env, EGLDisplay disp, int screen
 	
 	EGLConfig config;
 	EGLint useless;
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglChooseConfig.");
 	
 	lwjgl_eglChooseConfig(disp, attrib_list, &config, 1, &useless);
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Count of configs : %d", useless);
 	return config;
 }
 
@@ -349,7 +347,6 @@ static void dumpVisualInfo(JNIEnv *env, EGLDisplay display, EGLConfig vis_info) 
 	int alpha, depth, stencil, r, g, b;
 	int sample_buffers = 0;
 	int samples = 0;
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglGetConfigAttrib.");
 	lwjgl_eglGetConfigAttrib(display, vis_info, EGL_RED_SIZE, &r);
 	lwjgl_eglGetConfigAttrib(display, vis_info, EGL_GREEN_SIZE, &g);
 	lwjgl_eglGetConfigAttrib(display, vis_info, EGL_BLUE_SIZE, &b);

@@ -115,19 +115,16 @@ static int processEvent() {
 		if (org_lwjgl_BoatDisplay_class == NULL) {
 			// Don't propagate error
 			(*env)->ExceptionClear(env);
-			__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Failed to get class BoatDisplay!");
 			detachCurrentThread();
 			return 0;
 		}
 		jmethodID handler_method = (*env)->GetStaticMethodID(env, org_lwjgl_BoatDisplay_class, "processEvent", "()I");
 		if (handler_method == NULL) {
-		        __android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Failed to get handler method!");
 		        detachCurrentThread();
 			return 0;
 		}
 		return (*env)->CallStaticIntMethod(env, org_lwjgl_BoatDisplay_class, handler_method);
 	} else {
-	        __android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Failed to get JNIEnv!");
 	        detachCurrentThread();
 		return 0;
 	}
@@ -141,7 +138,6 @@ static jlong openDisplay(JNIEnv *env) {
 	}
 	return (intptr_t)display_connection;
 	*/
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "eglGetDisplay = %p", lwjgl_eglGetDisplay);
 	EGLDisplay display_connection = lwjgl_eglGetDisplay(boatGetNativeDisplay());
 
 	return (intptr_t)display_connection;
@@ -266,7 +262,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_BoatDisplay_closeDisplay(JNIEnv *en
 	Display *disp = (Display *)(intptr_t)display;
 	XCloseDisplay(disp);
 	*/
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglTerminate.");
 	lwjgl_eglTerminate( (EGLDisplay)(intptr_t)display );
 	
 }
@@ -311,7 +306,6 @@ static void destroyWindow(JNIEnv *env, EGLSurface disp, ANativeWindow* window) {
 	*/
 	
 	if (egl_surface != EGL_NO_SURFACE) {
-	        __android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglDestroySurface.");
 		lwjgl_eglDestroySurface(disp, egl_surface);
 		egl_surface = EGL_NO_SURFACE;
 	}
@@ -649,14 +643,11 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_BoatDisplay_nCreateWindow(JNIEnv *
 		XFree(fb_config);
 	}
 	*/
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglCreateWindowSurface. (org.lwjgl.opengl.BoatDisplay)");
-	__android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "NativeWindow : %p", win);
 	egl_surface = lwjgl_eglCreateWindowSurface(disp, config, win, NULL);
 
 	boatSetCurrentEventProcessor(processEvent);
 	
 	if (!checkBoatError(env, disp)) {
-	        __android_log_print(ANDROID_LOG_ERROR, "Boat-LWJGL", "Trying to lwjgl_eglDestroySurface.");
 		lwjgl_eglDestroySurface(disp, egl_surface);
 		destroyWindow(env, disp, win);
 	}

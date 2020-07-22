@@ -107,8 +107,8 @@ final class BoatMouse {
 		int win_y = 0;
 		
 		// Pretend that the cursor never moved
-		last_x = win_x;
-		last_y = transformY(win_y);
+		//last_x = win_x;
+		//last_y = transformY(win_y);
 		doHandlePointerMotion(grab, warp_pointer, /*root_window, root_x, root_y,*/ win_x, win_y, last_event_nanos);
 	}
 
@@ -195,7 +195,7 @@ final class BoatMouse {
 	}
 
 	public void changeGrabbed(boolean grab, boolean warp_pointer) {
-		reset(grab, warp_pointer);
+		//reset(grab, warp_pointer);
 	}
 
 	public int getButtonCount() {
@@ -217,8 +217,8 @@ final class BoatMouse {
 	}
 	private static native void nWarpCursor(long display, long window, int x, int y);
 
-	private void handlePointerMotion(boolean grab, boolean warp_pointer, long millis, /*long root_window, int x_root, int y_root,*/ int x, int y) {
-		doHandlePointerMotion(grab, warp_pointer, /*root_window, x_root, y_root,*/ x, y, millis*1000000);
+	private void handlePointerMotion(boolean grab, boolean warp_pointer, long nanos, /*long root_window, int x_root, int y_root,*/ int x, int y) {
+		doHandlePointerMotion(grab, warp_pointer, /*root_window, x_root, y_root,*/ x, y, /*millis*1000000*/nanos);
 	}
 
 	private void handleButton(boolean grab, int button, byte state, long nanos) {
@@ -317,11 +317,9 @@ final class BoatMouse {
 			*/
 			case BoatEvent.ButtonPress: /* Fall through */
 			case BoatEvent.ButtonRelease:
-			        System.out.println("Mouse button event!");
 				handleButtonEvent(grab, event.getButtonTime(), event.getButtonType(), (byte)event.getButtonButton());
 				return true;
 			case BoatEvent.MotionNotify:
-			        System.out.println("Mouse pointer event!");
 				handlePointerMotion(grab, warp_pointer, event.getButtonTime(), /*event.getButtonRoot(), event.getButtonXRoot(), event.getButtonYRoot(),*/ event.getButtonX(), event.getButtonY());
 				return true;
 			default:
